@@ -11,7 +11,10 @@ public class App {
 			GrafoMatrizNoDirigido g = arch.procesarArchivoIn(ciudadesCenElect);
 			g.imprimir();
 			
-			System.out.println(ciudadesCenElect[0]);
+			Kruskal kr = new Kruskal();
+			System.out.println(kr.recorrerGrafo(g)); 
+			
+			//System.out.println(ciudadesCenElect[0]);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

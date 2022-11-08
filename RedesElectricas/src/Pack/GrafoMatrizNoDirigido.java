@@ -41,7 +41,7 @@ public class GrafoMatrizNoDirigido extends Grafo {
 	}
 
 	@Override
-	public int getAristas(int desde, int hasta) {
+	public int getArista(int desde, int hasta) {
 		return this.matrizAdy[desde][hasta];
 	}
 }

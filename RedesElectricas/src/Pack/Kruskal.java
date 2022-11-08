@@ -24,6 +24,8 @@ import java.util.PriorityQueue;
 
 public class Kruskal {
 	
+	private int [] representantes;
+	
 	public int recorrerGrafo(Grafo grafo) {
 
 		// this.actualizarMatriz();
@@ -31,28 +33,28 @@ public class Kruskal {
 		// Ordenamos las aristas de menor a mayor y conservamos la informacion
 		PriorityQueue<AristaKruskal> colaDeAristas = new PriorityQueue<AristaKruskal>();
 		
-		for (int i = 0; i < grafo.length; i++) {
-			for (int j = 0; j < grafo[i].length; j++) {
-				if(this.grafo[i][j] != Double.MAX_VALUE)
-					colaDeAristas.add(new AristaKruskal(i, j, this.grafo[i][j]));		
+		for (int i = 0; i < grafo.getNodos(); i++) {
+			for (int j = 0; j < grafo.getNodos(); j++) {
+					colaDeAristas.add(new AristaKruskal(i, j, grafo.getArista(i, j)));		
 			}
 		}
 		
 		//Emepzamos a unir los n nodos entre si
 		int costo = 0;
-		UnionFind unionFind = new UnionFind(grafo.length);
+		UnionFind unionFind = new UnionFind(grafo.getNodos());
 		
 		while(!colaDeAristas.isEmpty()) {
 			AristaKruskal aristaAux = colaDeAristas.poll();
 			System.out.println(aristaAux);
 			
 			if(unionFind.union(aristaAux.getDesde(), aristaAux.getHasta()))
-				costo += aristaAux.getCosto();
+				costo += aristaAux.getPeso();
 		}
 		
 		// Obtengo el vector de representantes desde unionFind
 		representantes = unionFind.getId();
 		
+		return costo;
 	}
 	
 }

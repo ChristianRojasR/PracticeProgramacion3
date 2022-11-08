@@ -20,13 +20,15 @@ public class UnionFind {
 		return p;
 	}
 	
-	public void union(int p, int q) {
+	public boolean union(int p, int q) {
 		int i = find(p);
 		int j = find(q);
 		
-		if(i == j) return;
+		if(i == j) 
+			return false;
 		
 		id[i] = j;
+		return true;
 	}
 	
 	public int[] getId() {
