@@ -32,19 +32,16 @@ public class GrafoMatrizNoDirigido extends Grafo {
 
 	@Override
 	public int getNodos() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.matrizAdy.length;
 	}
 
 	@Override
-	public int setAristas() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void setArista(int desde, int hasta, int costo) {
+		this.matrizAdy[desde][hasta] = costo;
 	}
 
 	@Override
-	public int getAristas() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getAristas(int desde, int hasta) {
+		return this.matrizAdy[desde][hasta];
 	}
 }

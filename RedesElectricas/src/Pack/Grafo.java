@@ -3,7 +3,7 @@ package Pack;
 public abstract class Grafo {
 	
 	public abstract int getNodos();
-	public abstract int setAristas();
-	public abstract int getAristas();
+	public abstract void setArista(int desde, int hasta, int costo);
+	public abstract int getAristas(int desde, int hasta);
 	
 }
